@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // ユーザー登録ページへの遷移
@@ -26,19 +26,21 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // ユーザー情報をデータベースに保存
         try {
-            if (UserDAO.registerUser(username, email, password)) {
-                // 登録成功時はログインページへリダイレクト
-                response.sendRedirect("LoginServlet");
+            // ユーザー登録処理
+            boolean isRegistered = UserDAO.registerUser(username, email, password);
+            if (isRegistered) {
+                // 登録成功
+            	request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response); // 登録成功後はログインページにリダイレクト
             } else {
-                // エラー時は登録ページへ戻る
-                request.setAttribute("error", "登録に失敗しました。もう一度お試しください。");
+                // 登録失敗時はエラーメッセージを設定
+                request.setAttribute("errorMessage", "ユーザー登録に失敗しました。もう一度お試しください。");
                 request.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(request, response);
             }
         } catch (SQLException e) {
+            // DBエラーなど例外が発生した場合はエラーメッセージを表示
             e.printStackTrace();
-            request.setAttribute("error", "サーバーエラーが発生しました。");
+            request.setAttribute("errorMessage", "ユーザー登録中にエラーが発生しました。");
             request.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(request, response);
         }
     }

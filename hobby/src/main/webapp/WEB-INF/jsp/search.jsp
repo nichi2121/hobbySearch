@@ -63,16 +63,27 @@
             font-size: 16px;
             color: #333;
         }
-        a {
-            display: inline-block;
+        
+        /* 戻るボタンのスタイル */
+        .back-btn-container {
+            display: flex;
+            justify-content: center; /* ボタンを中央に配置 */
             margin-top: 20px;
-            padding: 10px 20px;
+        }
+
+        .back-btn {
             background-color: #28a745;
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 16px;
+            width: 220px;  /* 固定幅 */
+            text-align: center;
+            padding: 10px 20px;
+            display: inline-block;
         }
-        a:hover {
+
+        .back-btn:hover {
             background-color: #218838;
         }
     </style>
@@ -93,11 +104,14 @@
 
 <c:if test="${not empty userId}">
     <div class="result">
-        <p>あなたのユーザーID: ${userId}</p>
         <p>あなたのユーザー名: ${username}</p>
-        <p>あなたのメールアドレス: ${email}</p>
     </div>
 </c:if>
+
+<!-- 戻るボタン -->
+<div class="back-btn-container">
+    <a href="WelcomeServlet" class="back-btn">トップページに戻る</a>
+</div>
 
 </body>
 </html>

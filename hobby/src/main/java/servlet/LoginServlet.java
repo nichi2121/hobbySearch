@@ -11,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import util.DatabaseUtil;
 
 @WebServlet("/LoginServlet")
@@ -42,7 +43,10 @@ public class LoginServlet extends HttpServlet {
                     String storedPassword = resultSet.getString("password");
                     if (storedPassword.equals(password)) {
                         // 認証成功時、userIdをセッションに保存
-                        request.getSession().setAttribute("userId", userId);
+                        HttpSession session = request.getSession();
+                        session.setAttribute("userId", userId);
+                        session.setAttribute("username", username);  // ユーザー名もセッションに保存（必要に応じて）
+
                         // welcome.jspへフォワード
                         request.getRequestDispatcher("/WEB-INF/jsp/welcome.jsp").forward(request, response);
                         return;

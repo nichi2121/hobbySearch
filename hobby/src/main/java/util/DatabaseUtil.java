@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseUtil {
-    private static final String URL = "jdbc:h2:~/desktop/SQL/hobby";
+    private static final String URL = "jdbc:h2:~/desktop/SQL/hobby_nishimuraT";
     private static final String USER = "sa";
     private static final String PASSWORD = "";
 

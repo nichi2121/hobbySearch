@@ -23,7 +23,10 @@ public class SearchServlet extends HttpServlet {
         String username = request.getParameter("username");
 
         try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?")) {
+             PreparedStatement stmt = conn.prepareStatement(
+                 "SELECT u.id, u.username, u.email, h.hobby_name, h.weekend_plan, h.comment, h.image " +
+                 "FROM users u LEFT JOIN hobbies h ON u.id = h.user_id WHERE u.username = ?")) {
+
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
 
@@ -31,6 +34,16 @@ public class SearchServlet extends HttpServlet {
                 request.setAttribute("userId", rs.getInt("id"));
                 request.setAttribute("username", rs.getString("username"));
                 request.setAttribute("email", rs.getString("email"));
+                request.setAttribute("hobbyName", rs.getString("hobby_name"));
+                request.setAttribute("weekendPlan", rs.getString("weekend_plan"));
+                request.setAttribute("comment", rs.getString("comment"));
+
+                byte[] imageData = rs.getBytes("image");
+                if (imageData != null) {
+                    String base64Image = java.util.Base64.getEncoder().encodeToString(imageData);
+                    request.setAttribute("imageData", base64Image);
+                }
+
                 request.getRequestDispatcher("/WEB-INF/jsp/searchResult.jsp").forward(request, response);
             } else {
                 request.setAttribute("message", "ユーザーが見つかりませんでした。");

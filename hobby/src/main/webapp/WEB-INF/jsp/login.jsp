@@ -42,31 +42,47 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
+
+        /* 戻るボタン（赤色） */
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #dc3545; /* 赤色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px; /* ログインボタンと隣接させるための間隔 */
+        }
+
+        .back-btn:hover {
+            background-color: #c82333; /* 赤色を少し暗くする */
+        }
+
+        /* ボタンを横並びにする */
+        .button-container {
+            display: flex;
+            justify-content: center; /* ボタンを中央に配置 */
         }
     </style>
 </head>
 <body>
     <h1>ログイン</h1>
-    <form action="LoginServlet" method="post">
-        <label for="username">ユーザー名:</label>
-        <input type="text" id="username" name="username" required>
+    <form action="LoginServlet" method="POST">
+        <label>ユーザー名: <input type="text" name="username"></label><br>
+        <label>パスワード: <input type="password" name="password"></label><br>
 
-        <label for="password">パスワード:</label>
-        <input type="password" id="password" name="password" required>
-
-        <input type="submit" value="ログイン">
-
-        <% 
-            // エラーメッセージを表示
-            String error = request.getParameter("error");
-            if ("1".equals(error)) {
-        %>
-        <div class="error">ユーザー名またはパスワードが間違っています。</div>
-        <% } %>
+        <div class="button-container">
+            <input type="submit" value="ログイン">
+            <a href="index.jsp" class="back-btn">戻る</a>
+        </div>
     </form>
+
+<!-- エラーメッセージを表示 -->
+<c:if test="${not empty errorMessage}">
+    <div class="error-message">${errorMessage}</div>
+    
 </body>
 </html>

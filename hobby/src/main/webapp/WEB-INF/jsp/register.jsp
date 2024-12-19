@@ -42,6 +42,31 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #dc3545; /* 赤色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px; /* ログインボタンと隣接させるための間隔 */
+        }
+
+        .back-btn:hover {
+            background-color: #c82333; /* 赤色を少し暗くする */
+        }
+
+        /* ボタンを横並びにする */
+        .button-container {
+            display: flex;
+            justify-content: center; /* ボタンを中央に配置 */
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -55,8 +80,15 @@
 
         <label for="password">パスワード:</label>
         <input type="password" id="password" name="password" required>
-
-        <input type="submit" value="登録">
+		
+		<div class="button-container">
+        	<input type="submit" value="登録">
+        	<a href="index.jsp" class="back-btn">戻る</a>
+        </div>
     </form>
+<!-- エラーメッセージを表示 -->
+<c:if test="${not empty errorMessage}">
+    <div class="error-message">${errorMessage}</div>
+</c:if>
 </body>
 </html>
