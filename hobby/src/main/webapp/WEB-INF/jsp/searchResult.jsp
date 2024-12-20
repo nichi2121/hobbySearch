@@ -62,7 +62,7 @@
         <p><strong>休日の過ごし方:</strong> ${weekendPlan}</p>
         <p><strong>一言コメント:</strong> ${comment}</p>
         <c:if test="${not empty imageData}">
-            <p><strong>画像:</strong></p>
+            <p><strong></strong></p>
             <img src="data:image/jpeg;base64,${imageData}" alt="ユーザー画像">
         </c:if>
     </c:if>
