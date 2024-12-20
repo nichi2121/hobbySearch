@@ -41,9 +41,9 @@ SBキャリアカレッジ梅田校「Python/Javaプログラマー養成科」�
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## 実行準備
-1.Githubのリポジトリからzipファイルをダウンロード
-2.Eclipseに「hobby」をインポート
-3.H2 Databaseで「hobby.mv.db」を読み込み
-4.Tomcat10_Java21で「index.jsp」を実行
+1.Githubのリポジトリからzipファイルをダウンロード<br>
+2.Eclipseに「hobby」をインポート<br>
+3.H2 Databaseで「hobby.mv.db」を読み込み<br>
+4.Tomcat10_Java21で「index.jsp」を実行<br>
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
