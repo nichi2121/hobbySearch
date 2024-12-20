@@ -10,10 +10,16 @@
 
 ## プロジェクトについて
 SBキャリアカレッジ梅田校「Python/Javaプログラマー養成科」の授業の一環としてWebアプリケーションを作成しました。<br>
-・会社の従業員<br>
-・従業員同士のコミュニケーションを円滑にする<br>
-・初めて一人で作ったアプリケーションだったので何をするにもchatgptに「この〇〇.jspに〇〇のような機能を付けるにはどうすれば良いか」
-うまく動作しなかった時はエラーコードを丸々copy＆pasteで貼り付け「何が原因か」などを質問に質問を重ね完成しました。
+・ターゲットユーザー<br>
+  会社の従業員<br>
+
+・目的<br>
+　転勤や部署移動時のお互いの情報交換。<br>
+　従業員同士のコミュニケーションを円滑にする。<br>
+
+・所感<br>
+　初めて一人で作ったアプリケーションだったので何をするにもchatgptに「この〇〇.jspに〇〇のような機能を付けるにはどうすれば良いか」
+　うまく動作しなかった時はエラーコードをcopy＆pasteで貼り付け「何が原因か」などを質問に質問を重ね完成しました。
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
@@ -29,21 +35,24 @@ SBキャリアカレッジ梅田校「Python/Javaプログラマー養成科」�
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## デモ画面
-![TOP](img/top.png)<br>
 【トップ画面】スタート画面です。<br>
+![TOP](img/top.png)<br>
 
-![TEST](img/hobby.png)<br>
 【登録画面】趣味の登録画面です。<br>
+![TEST](img/hobby.png)<br>
 
-![RESULT](img/result.png)<br>
+【検索画面】ユーザーの検索画面です。<br>
+![SEARCH](img/search.png)<br>
+
 【結果画面】検索の結果画面です。 <br>
+![RESULT](img/result.png)<br>
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## 実行準備
-1.Githubのリポジトリからzipファイルをダウンロード
-2.Eclipseに「hobby」をインポート
-3.H2 Databaseで「hobby.mv.db」を読み込み
-4.Tomcat10_Java21で「index.jsp」を実行
+1.Githubのリポジトリからzipファイルをダウンロード<br>
+2.Eclipseに「hobby」をインポート<br>
+3.H2 Databaseで「hobby.mv.db」を読み込み<br>
+4.Tomcat10_Java21で「index.jsp」を実行<br>
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
