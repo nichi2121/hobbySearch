@@ -29,14 +29,14 @@ SBキャリアカレッジ梅田校「Python/Javaプログラマー養成科」�
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## デモ画面
-![TOP](img/top.png)<br>
 【トップ画面】スタート画面です。<br>
+![TOP](img/top.png)<br>
 
-![TEST](img/hobby.png)<br>
 【登録画面】趣味の登録画面です。<br>
+![TEST](img/hobby.png)<br>
 
-![RESULT](img/result.png)<br>
 【結果画面】検索の結果画面です。 <br>
+![RESULT](img/result.png)<br>
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
